@@ -14,13 +14,13 @@
     "email" : "leandro@leandrosilva.info",
     "homepage" : "http://leandrosilva.info"
   } ],
-  "keywords" : [ "library", "los", "base", "common" ],
+  "keywords" : [ "los", "pdf", "mpdf" ],
   "autoload" : {
     "psr-0" : {
-      "LosBase\\" : "src/"
+      "LosPdf\\" : "src/"
     },
     "psr-4" : {
-      "LosBase\\" : "src/"
+      "LosPdf\\" : "src/"
     }
   },
   "suggest" : {
