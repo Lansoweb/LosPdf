@@ -40,8 +40,8 @@ abstract class AbstractRenderer implements Renderer
         return $this;
     }
 
-    private function getOption($name, $default)
+    protected function getOption($name, $default)
     {
-        return $model->getOption($name, $default);
+        return $this->model->getOption($name, $default);
     }
 }
