@@ -41,7 +41,7 @@ class PdfStrategy implements ListenerAggregateInterface
             return $this->renderer;
         }
 
-        return null;
+        return;
     }
 
     public function injectResponse(ViewEvent $e)
@@ -69,7 +69,7 @@ class PdfStrategy implements ListenerAggregateInterface
 
             $response->getHeaders()->addHeaderLine(
                 'Content-Disposition',
-                'attachment; filename=' . $fileName);
+                'attachment; filename='.$fileName);
         }
     }
 }

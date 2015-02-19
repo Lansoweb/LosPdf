@@ -12,8 +12,8 @@ class MpdfRenderer extends AbstractRenderer
 
     public function doRender($html, $options = [])
     {
-        $paperOrientation = $this->getOption('paperOrientation','portrait');
-        $paperSite = $this->getOption('paperSize','a4');
+        $paperOrientation = $this->getOption('paperOrientation', 'portrait');
+        $paperSite = $this->getOption('paperSize', 'a4');
 
         $format = strtolower($paperOrientation[0]);
         if ($format == 'l') {

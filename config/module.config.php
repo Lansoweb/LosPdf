@@ -2,13 +2,13 @@
 return [
     'view_manager' => [
         'strategies' => [
-            'ViewPdfStrategy'
-        ]
+            'ViewPdfStrategy',
+        ],
     ],
     'service_manager' => [
         'factories' => [
             'ViewPdfRenderer' => 'LosPdf\Model\ViewPdfRenderer',
-            'ViewPdfStrategy' => 'LosPdf\Model\ViewPdfStrategy'
+            'ViewPdfStrategy' => 'LosPdf\Model\ViewPdfStrategy',
         ],
-    ]
+    ],
 ];
