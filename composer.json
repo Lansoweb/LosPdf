@@ -14,7 +14,7 @@
     "email" : "leandro@leandrosilva.info",
     "homepage" : "http://leandrosilva.info"
   } ],
-  "keywords" : [ "los", "pdf", "mpdf" ],
+  "keywords" : [ "los", "pdf", "mpdf", "zf2" ],
   "autoload" : {
     "psr-0" : {
       "LosPdf\\" : "src/"
