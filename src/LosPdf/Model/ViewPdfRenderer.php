@@ -3,7 +3,7 @@ namespace LosPdf\Model;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use LosPdf\View\er\MpdfRenderer;
+use LosPdf\View\Renderer\MpdfRenderer;
 
 class ViewPdfRenderer implements FactoryInterface
 {

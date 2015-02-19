@@ -9,11 +9,10 @@ class PdfModel extends ViewModel
         'paperSize' => 'A4',
         'paperOrientation' => 'portrait',
         'basePath' => '/',
-        'fileName' => 'file'
+        'fileName' => 'file',
     ];
 
     protected $captureTo = null;
 
     protected $terminate = true;
-
 }
