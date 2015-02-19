@@ -7,7 +7,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            'ViewPdfRender' => 'LosPdf\Model\ViewPdfRender',
+            'ViewPdfRenderer' => 'LosPdf\Model\ViewPdfRenderer',
             'ViewPdfStrategy' => 'LosPdf\Model\ViewPdfStrategy'
         ],
     ]

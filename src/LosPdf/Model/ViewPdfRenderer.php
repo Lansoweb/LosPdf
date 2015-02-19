@@ -5,7 +5,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use LosPdf\View\Render\MpdfRenderer;
 
-class ViewPdfRender implements FactoryInterface
+class ViewPdfRenderer implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

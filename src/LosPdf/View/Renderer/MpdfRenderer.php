@@ -1,5 +1,5 @@
 <?php
-namespace LosPdf\View\Render;
+namespace LosPdf\View\Renderer;
 
 use mPDF;
 

@@ -1,5 +1,5 @@
 <?php
-namespace LosPdf\View\Render;
+namespace LosPdf\View\Renderer;
 
 use Zend\View\Renderer\RendererInterface as Renderer;
 use Zend\View\Resolver\ResolverInterface as Resolver;

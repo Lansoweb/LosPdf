@@ -1,11 +1,11 @@
 <?php
 namespace LosPdf\View\Strategy;
 
-use LosPdf\View\Model;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\ViewEvent;
-use LosPdf\View\Render\AbstractRenderer;
+use LosPdf\View\Renderer\AbstractRenderer;
+use LosPdf\View\Model\PdfModel;
 
 class PdfStrategy implements ListenerAggregateInterface
 {
@@ -37,7 +37,7 @@ class PdfStrategy implements ListenerAggregateInterface
     {
         $model = $e->getModel();
 
-        if ($model instanceof AbstractRenderer) {
+        if ($model instanceof PdfModel) {
             return $this->renderer;
         }
 
