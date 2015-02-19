@@ -41,7 +41,7 @@ class PdfStrategy implements ListenerAggregateInterface
             return $this->renderer;
         }
 
-        return;
+        return null;
     }
 
     public function injectResponse(ViewEvent $e)

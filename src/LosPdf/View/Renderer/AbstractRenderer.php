@@ -6,7 +6,7 @@ use Zend\View\Resolver\ResolverInterface as Resolver;
 
 abstract class AbstractRenderer implements Renderer
 {
-    protected $engine;
+    protected $engine = null;
     protected $resolver;
     protected $renderer;
     protected $model;

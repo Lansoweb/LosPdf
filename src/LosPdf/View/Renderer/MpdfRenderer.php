@@ -7,7 +7,10 @@ class MpdfRenderer extends AbstractRenderer
 {
     public function getEngine()
     {
-        return new mPDF();
+        if ($this->engine === null) {
+            $this->engine = new mPDF();
+        }
+        return $this->engine;
     }
 
     public function doRender($html, $options = [])
@@ -20,7 +23,7 @@ class MpdfRenderer extends AbstractRenderer
             $paperSize = $paperSize.'-'.$format;
         }
 
-        $mpdf = $this->pdf;
+        $mpdf = $this->getEngine();
         $mpdf->_setPageSize($paperSize, $paperOrientation);
         $mpdf->WriteHTML($html);
 
