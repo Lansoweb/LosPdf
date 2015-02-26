@@ -54,6 +54,9 @@ For composer documentation, please refer to [getcomposer.org](http://getcomposer
   2. Enable it in your config/application.config.php like the step 4 in the previous section.
 
 ## Usage
+
+### Render to browser
+
 The following example demonstrates a typical usage of the LosPdf module inside an Action in a Controller:
 
 ```php
@@ -89,5 +92,106 @@ And use the view file as usual.
 You can set any mPdf option through $renderer->getEngine():
 ```php
 $renderer = $this->getServiceLocator()->get('ViewPdfRenderer');
-$denrerer->getEngine()->pagenumPrefix = 'Page n ';
+$renderer->getEngine()->pagenumPrefix = 'Page n ';
+```
+
+### Render to string
+
+You can capture the pdf output to a string:
+
+```php
+    public function pdfAction()
+    {
+        $generated = new \DateTime('now');
+        $genetared = $gerado->format('d/m/Y H:i:s');
+
+        $pdf = new PdfModel();
+        $renderer = $this->getServiceLocator()->get('ViewPdfRenderer');
+        $renderer->getEngine()->setHTMLHeader('<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-bottom: 1px solid #000"><tr>
+<td width="33%"><span style="font-weight: bold; font-style: italic;">Client</span></td>
+<td width="33%" align="center" style="font-weight: bold; font-style: italic;">Report Name</td>
+<td width="33%" style="text-align: right; ">My Company</td>
+</tr></table>
+');
+        $renderer->getEngine()->setHTMLFooter('Footer', '<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-top: 1px solid #000"><tr>
+<td width="50%" style="text-align: left; font-weight: bold; font-style: italic;">Generated: '.$generated.'</td>
+<td width="50%" style="text-align: right; ">Page {PAGENO}</td>
+</tr></table>
+');
+
+        $pdf->setTerminal(true);
+        $pdf->setVariables($ret);
+        $pdf->setOption("paperSize", "a4");
+        $pdf->setTemplate('site/index/pdf');
+        $output = $renderer->renderToString($pdf);
+        
+        //Do something with output
+    }
+```
+
+### Render to file
+
+You can save the pdf to a file:
+
+```php
+    public function pdfAction()
+    {
+        $generated = new \DateTime('now');
+        $genetared = $gerado->format('d/m/Y H:i:s');
+
+        $pdf = new PdfModel();
+        $renderer = $this->getServiceLocator()->get('ViewPdfRenderer');
+        $renderer->getEngine()->setHTMLHeader('<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-bottom: 1px solid #000"><tr>
+<td width="33%"><span style="font-weight: bold; font-style: italic;">Client</span></td>
+<td width="33%" align="center" style="font-weight: bold; font-style: italic;">Report Name</td>
+<td width="33%" style="text-align: right; ">My Company</td>
+</tr></table>
+');
+        $renderer->getEngine()->setHTMLFooter('Footer', '<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-top: 1px solid #000"><tr>
+<td width="50%" style="text-align: left; font-weight: bold; font-style: italic;">Generated: '.$generated.'</td>
+<td width="50%" style="text-align: right; ">Page {PAGENO}</td>
+</tr></table>
+');
+
+        $pdf->setTerminal(true);
+        $pdf->setVariables($ret);
+        $pdf->setOption("paperSize", "a4");
+        $pdf->setTemplate('site/index/pdf');
+        $renderer->renderToFile($pdf, '/tmp/report.pdf');
+    }
+```
+
+### Mixing outputs
+
+You can use more than one render type. the following example will save the pdf to a file, render the pdf to a string and to the browser:
+
+```php
+    public function pdfAction()
+    {
+        $generated = new \DateTime('now');
+        $genetared = $gerado->format('d/m/Y H:i:s');
+
+        $pdf = new PdfModel();
+        $renderer = $this->getServiceLocator()->get('ViewPdfRenderer');
+        $renderer->getEngine()->setHTMLHeader('<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-bottom: 1px solid #000"><tr>
+<td width="33%"><span style="font-weight: bold; font-style: italic;">Client</span></td>
+<td width="33%" align="center" style="font-weight: bold; font-style: italic;">Report Name</td>
+<td width="33%" style="text-align: right; ">My Company</td>
+</tr></table>
+');
+        $renderer->getEngine()->setHTMLFooter('Footer', '<table width="100%" style="vertical-align: bottom; font-family: serif; font-size: 8pt; color: #000000; font-weight: bold; font-style: italic; border-top: 1px solid #000"><tr>
+<td width="50%" style="text-align: left; font-weight: bold; font-style: italic;">Generated: '.$generated.'</td>
+<td width="50%" style="text-align: right; ">Page {PAGENO}</td>
+</tr></table>
+');
+
+        $pdf->setTerminal(true);
+        $pdf->setVariables($ret);
+        $pdf->setOption("paperSize", "a4");
+        $pdf->setTemplate('site/index/pdf');
+        $output = $renderer->renderToString($pdf);
+        $renderer->renderToFile($pdf, '/tmp/report.pdf');
+        
+        return $pdf;
+    }
 ```
