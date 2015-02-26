@@ -25,7 +25,7 @@ abstract class AbstractRenderer implements Renderer
         return $this->renderer;
     }
 
-    abstract protected function doRender($html);
+    abstract protected function doRender();
     abstract protected function doPrepare($model, $values);
     abstract protected function doRenderToString(PdfModel $model);
     abstract protected function doRenderToFile(PdfModel $model, $fileName);
@@ -41,16 +41,16 @@ abstract class AbstractRenderer implements Renderer
     public function render($model, $values = null)
     {
         $this->prepare($model, $values);
-        return $this->doRender($html);
+        return $this->doRender();
     }
 
-    public function renderToString(PdfModel $model)
+    public function renderToString(PdfModel $model, $values = null)
     {
         $this->prepare($model, $values);
         return $this->doRenderToString($model);
     }
 
-    public function renderToFile(PdfModel $model, $fileName)
+    public function renderToFile(PdfModel $model, $fileName, $values = null)
     {
         $this->prepare($model, $values);
         return $this->doRenderToFile($model, $fileName);

@@ -14,7 +14,7 @@ final class MpdfRenderer extends AbstractRenderer
         return $this->engine;
     }
 
-    protected function doRender($html, $options = [])
+    protected function doRender()
     {
         return $this->getEngine()->Output();
     }
