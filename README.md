@@ -80,7 +80,7 @@ The following example demonstrates a typical usage of the LosPdf module inside a
 ');
 
         $pdf->setTerminal(true);
-        $pdf->setVariables($ret);
+        $pdf->setVariables(['name'=>'Leandro']);
         $pdf->setOption("paperSize", "a4");
 
         return $pdf;
@@ -120,7 +120,7 @@ You can capture the pdf output to a string:
 ');
 
         $pdf->setTerminal(true);
-        $pdf->setVariables($ret);
+        $pdf->setVariables(['name'=>'Leandro']);
         $pdf->setOption("paperSize", "a4");
         $pdf->setTemplate('site/index/pdf');
         $output = $renderer->renderToString($pdf);
@@ -154,7 +154,7 @@ You can save the pdf to a file:
 ');
 
         $pdf->setTerminal(true);
-        $pdf->setVariables($ret);
+        $pdf->setVariables(['name'=>'Leandro']);
         $pdf->setOption("paperSize", "a4");
         $pdf->setTemplate('site/index/pdf');
         $renderer->renderToFile($pdf, '/tmp/report.pdf');
@@ -186,7 +186,7 @@ You can use more than one render type. the following example will save the pdf t
 ');
 
         $pdf->setTerminal(true);
-        $pdf->setVariables($ret);
+        $pdf->setVariables(['name'=>'Leandro']);
         $pdf->setOption("paperSize", "a4");
         $pdf->setTemplate('site/index/pdf');
         $output = $renderer->renderToString($pdf);
