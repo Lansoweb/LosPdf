@@ -26,11 +26,13 @@ final class MpdfRenderer extends AbstractRenderer
         $paperOrientation = $this->getOption('paperOrientation', 'portrait');
         $paperSize = $this->getOption('paperSize', 'a4');
 
-        $format = strtolower($paperOrientation[0]);
-        if ($format == 'l') {
-            $paperSize = $paperSize.'-'.$format;
+        if (!is_array($paperSize)) {
+            $format = strtolower($paperOrientation[0]);
+            if ($format == 'l') {
+                $paperSize = $paperSize.'-'.$format;
+            }
         }
-
+        
         $this->getEngine()->_setPageSize($paperSize, $paperOrientation);
         $this->getEngine()->WriteHTML($this->html);
     }
