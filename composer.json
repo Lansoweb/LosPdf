@@ -3,7 +3,7 @@
   "description" : "ZF2 module to wrapper some pdf generation libraries",
   "require" : {
     "php" : ">=5.4",
-    "zendframework/zendframework" : "~2.3"
+    "zendframework/zendframework" : ">=2.3.2,<3.0.0"
   },
   "require-dev" : {
     "satooshi/php-coveralls" : "dev-master",
