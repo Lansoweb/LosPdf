@@ -1,10 +1,26 @@
 <?php
+/**
+ * Abstract Renderer file
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 namespace LosPdf\View\Renderer;
 
 use Zend\View\Renderer\RendererInterface as Renderer;
 use Zend\View\Resolver\ResolverInterface as Resolver;
 use LosPdf\View\Model\PdfModel;
 
+/**
+ * Abstract Renderer class
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 abstract class AbstractRenderer implements Renderer
 {
     protected $engine = null;
@@ -41,18 +57,21 @@ abstract class AbstractRenderer implements Renderer
     public function render($model, $values = null)
     {
         $this->prepare($model, $values);
+
         return $this->doRender();
     }
 
     public function renderToString(PdfModel $model, $values = null)
     {
         $this->prepare($model, $values);
+
         return $this->doRenderToString($model);
     }
 
     public function renderToFile(PdfModel $model, $fileName, $values = null)
     {
         $this->prepare($model, $values);
+
         return $this->doRenderToFile($model, $fileName);
     }
 

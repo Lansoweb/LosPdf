@@ -1,8 +1,24 @@
 <?php
+/**
+ * Module file
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 namespace LosPdf;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
+/**
+ * Module file
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 class Module implements AutoloaderProviderInterface
 {
     public function getAutoloaderConfig()
@@ -13,7 +29,6 @@ class Module implements AutoloaderProviderInterface
             ],
             'Zend\Loader\StandardAutoloader' => [
                 'namespaces' => [
-            // if we're in a namespace deeper than one level we need to fix the \ in the path
                     __NAMESPACE__ => __DIR__ ,
                 ],
             ],

@@ -1,4 +1,12 @@
 <?php
+/**
+ * PdfStrategy file
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 namespace LosPdf\View\Strategy;
 
 use Zend\EventManager\EventManagerInterface;
@@ -7,6 +15,14 @@ use Zend\View\ViewEvent;
 use LosPdf\View\Renderer\AbstractRenderer;
 use LosPdf\View\Model\PdfModel;
 
+/**
+ * PdfStrategy class
+ *
+ * @author     Leandro Silva <leandro@leandrosilva.info>
+ * @category   LosPdf
+ * @license    https://github.com/Lansoweb/LosPdf/blob/master/LICENSE BSD-3 License
+ * @link       http://github.com/LansoWeb/LosPdf
+ */
 class PdfStrategy implements ListenerAggregateInterface
 {
     protected $listeners = [];
